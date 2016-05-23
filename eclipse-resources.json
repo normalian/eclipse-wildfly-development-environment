@@ -77,7 +77,7 @@
         "imageOffer": "WindowsServer",
         "OSDiskName": "osdiskforwindowssimple",
         "nicName": "myVMNic",
-        "subnetName": "[parameters('networkSettings').subnet.des.name]",
+        "subnetName": "[parameters('networkSettings').subnet.dse.name]",
         "storageAccountType": "Standard_LRS",
         "publicIPAddressName": "myPublicIP",
         "publicIPAddressType": "Dynamic",
@@ -86,7 +86,7 @@
         "vmSize": "Standard_A2",
         "virtualNetworkName": "[parameters('networkSettings').virtualNetworkName]",
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', parameters('networkSettings').virtualNetworkName)]",
-        "subnetRef": "[concat(variables('vnetID'),'/subnets/', parameters('networkSettings').subnet.des.name)]"
+        "subnetRef": "[concat(variables('vnetID'),'/subnets/', parameters('networkSettings').subnet.dse.name)]"
     },
     "resources": [
         {
@@ -125,7 +125,7 @@
                     {
                         "name": "[variables('subnetName')]",
                         "properties": {
-                            "addressPrefix": "[parameters('networkSettings').subnet.des.prefix]"
+                            "addressPrefix": "[parameters('networkSettings').subnet.dse.prefix]"
                         }
                     }
                 ]
