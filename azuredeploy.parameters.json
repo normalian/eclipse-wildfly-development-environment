@@ -1,0 +1,39 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountPrefix": {
+      "value": "myteststorage0014"
+    },
+    "virtualNetworkName": {
+      "value": "vnet1"
+    },
+    "osAdminUsername": {
+      "value": "azureuser"
+    },
+    "osAdminPassword": {
+      "value": "P@ssword1"
+    },
+    "wildflyAdminUsername": {
+      "value": "admin"
+    },
+    "wildflyAdminPassword": {
+      "value": "P@ssword1"
+    },
+    "dnsName": {
+      "value": "mytestdns0014"
+    },
+    "eclipseDnsName": {
+      "value": "eclipsepip05"
+    },
+    "masterVmSize": {
+      "value": "Standard_D3"
+    },
+    "slaveNodes": {
+      "value": 3
+    },
+    "slaveVmSize": {
+      "value": "Standard_D3"
+    }
+  }
+}
