@@ -75,13 +75,13 @@
     "variables": {
         "imagePublisher": "MicrosoftWindowsServer",
         "imageOffer": "WindowsServer",
-        "OSDiskName": "osdiskforwindowssimple",
+        "OSDiskName": "osdiskforwindows",
+        "vmName": "MyEclipseVM",
         "nicName": "myEclipseVMNic",
-        "subnetName": "[parameters('networkSettings').subnet.dse.name]",
         "publicIPAddressName": "myEclipsePublicIP",
+        "subnetName": "[parameters('networkSettings').subnet.dse.name]",
         "publicIPAddressType": "Dynamic",
         "vmStorageAccountContainerName": "vhds",
-        "vmName": "MyWindowsVM",
         "vmSize": "Standard_D3",
         "virtualNetworkName": "[parameters('networkSettings').virtualNetworkName]",
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', parameters('networkSettings').virtualNetworkName)]",
@@ -160,7 +160,7 @@
                     "vmSize": "[variables('vmSize')]"
                 },
                 "osProfile": {
-                    "computername": "[variables('vmName')]",
+                    "computerName": "[variables('vmName')]",
                     "adminUsername": "[parameters('adminUsername')]",
                     "adminPassword": "[parameters('adminPassword')]"
                 },

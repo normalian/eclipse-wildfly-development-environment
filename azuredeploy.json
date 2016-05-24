@@ -334,7 +334,7 @@
                         "value": "[parameters('osAdminPassword')]"
                     },
                     "eclipseDnsNameForPublicIP": {
-                        "value": "eclipsepip"
+                        "value": "eclipsePIp"
                     }
                 }
             }
