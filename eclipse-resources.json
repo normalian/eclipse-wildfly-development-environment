@@ -76,28 +76,18 @@
         "imagePublisher": "MicrosoftWindowsServer",
         "imageOffer": "WindowsServer",
         "OSDiskName": "osdiskforwindowssimple",
-        "nicName": "myVMNic",
+        "nicName": "myEclipseVMNic",
         "subnetName": "[parameters('networkSettings').subnet.dse.name]",
-        "storageAccountType": "Standard_LRS",
-        "publicIPAddressName": "myPublicIP",
+        "publicIPAddressName": "myEclipsePublicIP",
         "publicIPAddressType": "Dynamic",
         "vmStorageAccountContainerName": "vhds",
         "vmName": "MyWindowsVM",
-        "vmSize": "Standard_A2",
+        "vmSize": "Standard_D3",
         "virtualNetworkName": "[parameters('networkSettings').virtualNetworkName]",
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', parameters('networkSettings').virtualNetworkName)]",
         "subnetRef": "[concat(variables('vnetID'),'/subnets/', parameters('networkSettings').subnet.dse.name)]"
     },
     "resources": [
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[parameters('newStorageAccountName')]",
-            "apiVersion": "2015-05-01-preview",
-            "location": "[resourceGroup().location]",
-            "properties": {
-                "accountType": "[variables('storageAccountType')]"
-            }
-        },
         {
             "apiVersion": "2015-05-01-preview",
             "type": "Microsoft.Network/publicIPAddresses",
@@ -118,7 +108,7 @@
             "properties": {
                 "addressSpace": {
                     "addressPrefixes": [
-                        "[variables('addressPrefix')]"
+                        "[parameters('networkSettings').subnet.dse.prefix]"
                     ]
                 },
                 "subnets": [
@@ -215,7 +205,7 @@
                      "autoUpgradeMinorVersion":true,
                      "settings": {
                          "fileUris": [ "[parameters('scriptFile')]" ],
-       	                  "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file ', parameters('scriptName'), ' ', parameters('eclipseUrl'), ' ', parameters('jdkUrl'), ' ', parameters('adminUsername'))]"
+       	                  "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file ', parameters('scriptName'), ' ', parameters('eclipseUrl'), ' ', parameters('jdkUrl'))]"
                      }
                  }
               }
